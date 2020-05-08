@@ -1,4 +1,9 @@
-## Personal beginners guide
+## Basic tutorial
+
+To see the website visit: [mateuszbelka.github.io](https://mateuszbelka.github.io/)
+
+master branch has latest deployment of website. production branch has source code.
+
 To run live version on your machine.
 ```bash
 npm start
