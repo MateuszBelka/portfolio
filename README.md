@@ -1,6 +1,6 @@
 ## Basic tutorial
 
-To see the website visit: [mateuszbelka.github.io](https://mateuszbelka.github.io/)
+To see the website visit: [mateuszbelka.github.io](https://mateuszbelka.github.io/) or [mateuszbelka.netlify.app](https://mateuszbelka.netlify.app/)
 
 master branch has latest deployment of website. production branch has source code.
 
