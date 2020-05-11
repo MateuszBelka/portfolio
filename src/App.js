@@ -6,8 +6,12 @@ import {
   Link
 } from 'react-router-dom'; // Using HashRouter due to lack of pushState support on GH pages
 
+import Header from "./components/Header";
 import Home from './components/Home';
 import About from './components/About';
+import Resume from './components/Resume';
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 /*
@@ -24,14 +28,22 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/about/">
-            <About />
-          </Route>
-        </Switch>
+        <div className = "App">
+          <div className = "container">
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/about/">
+                <About />
+              </Route>
+              <Route exact path="/resume/">
+                <Resume />
+              </Route>
+            </Switch>
+          </div>
+        </div>
       </Router>
     );
   }

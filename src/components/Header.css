@@ -1,0 +1,49 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar-nav a:hover, a:visited, a:active {
+  border-bottom: 2px solid cyan;
+}
+
+.nameContainer {
+  text-align: center;
+}
+
+.name {
+  font-size: 42px;
+}
+
+.jobTitle {
+  margin-top: -6px;
+  font-size: 18px;
+}
+
+.nav-link {
+  font-size: 24px;
+  text-align: center;
+  padding: 0px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .navContainer {
+    margin: 10px 0px 10px;
+  }
+
+  .nav-link {
+    width: 80px;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .navContainer {
+    margin: 50px 0px 10px;
+  }
+
+  .nav-link {
+    width: auto;
+    margin: auto 10px;
+  }
+}
