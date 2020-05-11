@@ -14,7 +14,7 @@ export default function Footer() {
 
     <Navbar fixed="bottom" className="d-flex justify-content-center footer" variant="dark" bg="dark">
       <Navbar.Brand href="#/about/" className="footerText">
-        Designed & Engineered by
+        Designed & Developed by
         <div className="footerName"> Mateusz Belka</div>
       </Navbar.Brand>
     </Navbar>
