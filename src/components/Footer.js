@@ -2,27 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
-// import './Header.css';
+import './Footer.css';
 
 //TODO: add X at bottom
 
 export default function Footer() {
   return (
-    <Navbar fixed="bottom" className="d-flex justify-content-center" variant="dark" bg="dark">
-      <Navbar.Brand href="#/about/" style={footer}>
+    // <div className="footer">
+    //   Designed & Developed by
+    //   <div className="footerName"> Mateusz Belka</div>
+    // </div>
+
+    <Navbar fixed="bottom" className="d-flex justify-content-center footer" variant="dark" bg="dark">
+      <Navbar.Brand href="#/about/" className="footerText">
         Designed & Engineered by
-        <div style={name}> Mateusz Belka</div>
+        <div className="footerName"> Mateusz Belka</div>
       </Navbar.Brand>
     </Navbar>
   )
-}
-
-const footer = {
-  fontSize: '18px'
-}
-
-const name = {
-  backgroundColor: 'inherit',
-  display: 'inline',
-  fontWeight: 'bold'
 }
