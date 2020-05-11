@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'; // Using HashRouter due to lack of pushState support on GH pages
 
 import Header from "./components/Header";

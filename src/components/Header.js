@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import * as Scroll from 'react-scroll';
+import { Navbar, Nav } from 'react-bootstrap';
 import { animateScroll as scroll } from 'react-scroll'
 
 import './Header.css';
