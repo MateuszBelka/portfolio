@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Home from './components/Home';
 import About from './components/About';
 import Resume from './components/Resume';
+import Footer from './components/Footer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -41,6 +42,7 @@ class App extends Component {
               <Resume />
             </Route>
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
