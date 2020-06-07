@@ -9,6 +9,11 @@ To run live version on your machine.
 npm start
 ```
 
+Before deploying you need to install gh-pages.
+```bash
+npm install -g gh-pages --save-dev
+```
+
 To deploy changes to github.
 ```bash
 npm run deploy
