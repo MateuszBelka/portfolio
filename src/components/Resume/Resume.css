@@ -1,0 +1,13 @@
+@media only screen and (min-width: 1000px) {
+    .ResumeContainer {
+        margin: 0 10vw 0;
+    }
+}
+
+.ResumeContainer * {
+    background: transparent;
+}
+
+.rpv-core-inner-page {
+    background: #333;
+}

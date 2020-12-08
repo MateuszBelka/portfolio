@@ -5,11 +5,11 @@ import {
   Route
 } from 'react-router-dom'; // Using HashRouter due to lack of pushState support on GH pages
 
-import Header from "./components/Header";
-import Home from './components/Home';
-import About from './components/About';
-import Resume from './components/Resume';
-import Footer from './components/Footer';
+import Header from "../components/Header/Header";
+import Home from '../components/Home/Home';
+import About from '../components/About/About';
+import Resume from '../components/Resume/Resume';
+import Footer from '../components/Footer/Footer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -21,14 +21,10 @@ import './App.css';
 */
 
 class App extends Component {
-  state = {
-
-  }
-
   render() {
     return (
       <Router>
-        <div className = "App">
+        <div className="App">
           <Header />
           <Switch>
             <Route exact path="/">
