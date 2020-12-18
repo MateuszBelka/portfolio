@@ -1,6 +1,6 @@
 import React from 'react';
 import { Worker, Viewer, SpecialZoomLevel } from '@react-pdf-viewer/core';
-import resume from '../../resume.pdf';
+import resume from './resume.pdf';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import './Resume.css';
 

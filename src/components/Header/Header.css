@@ -1,9 +1,21 @@
-.navbar-nav a:hover, a:visited, a:active {
-    border-bottom: 2px solid cyan;
+.navbar-nav a {
+    display:inline-block;
 }
 
-.navbar-brand a:hover, a:visited, a:active {
-    border-bottom: none;
+.navbar-nav a:after {
+    display:block;
+    content: '';
+    border-bottom: 3px solid cyan;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.navbar-nav a:hover {
+    transform: translateY(-10%);
+}
+
+.navbar-nav a:hover:after {
+    transform: scaleX(1);
 }
 
 .nameContainer {
@@ -22,27 +34,50 @@
 .nav-link {
     font-size: 24px;
     text-align: center;
-    padding: 0;
 }
 
 @media only screen and (max-width: 1000px) {
     .navContainer {
-        margin: 10px 0 10px;
+        margin: 0;
     }
 
     .nav-link {
         width: 80px;
         margin: auto;
     }
+
+    .navbar-brand {
+        margin-top: 15px;
+        margin-right: 0!important;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        width: auto;
+    }
+
+    .nameContainer {
+        float: left;
+    }
+
+    .name {
+        font-size: 32px;
+    }
+
+    .jobTitle {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
     .navContainer {
-        margin: 50px 0 50px;
+        margin: 30px 75px 50px;
     }
 
     .nav-link {
         width: auto;
-        margin: auto 10px;
+        margin: auto 20px;
+    }
+
+    #responsive-navbar-nav {
+        margin-top: 20px;
     }
 }

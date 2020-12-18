@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
-  HashRouter as Router,
-  Switch,
-  Route
+    HashRouter as Router,
+    Switch,
+    Route,
+    Redirect
 } from 'react-router-dom'; // Using HashRouter due to lack of pushState support on GH pages
 
 import Header from "../components/Header/Header";
@@ -21,27 +22,35 @@ import './App.css';
 */
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/about/">
-              <About />
-            </Route>
-            <Route exact path="/resume/">
-              <Resume />
-            </Route>
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <div className="App">
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route exact path="/projects/">
+                            <Header />
+                            <div className="horizontal-margin-large"><About /></div>
+                            <Footer />
+                        </Route>
+                        <Route exact path="/resume/">
+                            <Header />
+                            <div className="horizontal-margin-large"><Resume /></div>
+                            <Footer />
+                        </Route>
+                        <Route exact path="/about/">
+                            <Header />
+                            <div className="horizontal-margin-large"><About /></div>
+                            <Footer />
+                        </Route>
+                        <Redirect from='*' to='/' />
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
