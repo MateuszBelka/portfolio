@@ -1,4 +1,9 @@
-.aboutContainer {
-    text-align: center;
-    margin-top: 350px;
+.centerToScreen {
+    position: fixed;
+    width: 320px;
+    height: 48px;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px; /* Negative half of height. */
+    margin-left: -160px; /* Negative half of width. */
 }

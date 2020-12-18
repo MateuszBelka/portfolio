@@ -29,6 +29,19 @@
 .jobTitle {
     margin-top: -6px;
     font-size: 18px;
+
+    p {
+        display: inline-block;
+    }
+
+    p:first-letter {
+        color: orange;
+    }
+
+    p:first-child:after {
+        content: " ";
+        white-space: pre;
+    }
 }
 
 .nav-link {
@@ -38,7 +51,7 @@
 
 @media only screen and (max-width: 1000px) {
     .navContainer {
-        margin: 0;
+        margin-top: 5px;
     }
 
     .nav-link {
@@ -47,10 +60,7 @@
     }
 
     .navbar-brand {
-        margin-top: 15px;
-        margin-right: 0!important;
-        margin-bottom: 20px;
-        margin-left: 10px;
+        margin: 15px 0 20px 10px;
         width: auto;
     }
 

@@ -1,9 +1,16 @@
+p {
+    margin-bottom: 0!important;
+}
+
 div.grid {
     display: grid;
 
-    @media (max-width: 740px) {
-        padding: 100px 0;
-    }
+    // Enable if the icons result in page being full mobile screen size
+    // and name (title) reaches the top of the page
+
+    //@media (max-width: 740px) {
+    //    padding: 100px 0;
+    //}
 }
 
 .grid > header {
@@ -21,6 +28,10 @@ div.grid {
 
 .fullHeight {
     height: 100vh;
+
+    @media (max-width: 740px) {
+        height: 90vh;
+    }
 }
 
 header h1 {
@@ -29,7 +40,7 @@ header h1 {
     margin-bottom: -.5rem;
 }
 
-header p {
+header div {
     text-align: center;
     font-size: clamp(22px, 2.2vw, 30px);
 
@@ -48,7 +59,7 @@ header p {
 }
 
 nav.grid {
-    margin-top: 20px;
+    margin-top: calc(9vh - 30px);
 
     ul {
         display: grid;
@@ -66,9 +77,37 @@ nav.grid {
         }
 
         @media (max-width: 740px) {
-            margin-top: 30px;
-            grid-gap: 30px;
+            margin-top: 0;
+            grid-gap: calc(18vh - 100px);
             grid-auto-flow: row;
+        }
+    }
+
+    li {
+
+        @media (min-width: 741px){
+            display: grid;
+            grid-auto-flow: row;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        span {
+            @media (max-width: 740px) {
+                display: none;
+            }
+            visibility: hidden;
+        }
+
+        &:hover {
+            a svg {
+                transform: scale(1.2);
+                transform-origin: 50% 50%;
+            }
+
+            span {
+                visibility: visible;
+            }
         }
     }
 

@@ -1,0 +1,65 @@
+.footerMargin {
+    margin-top: 100px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.inherit-background {
+    background-color: inherit;
+}
+
+.children-inherit-background > * {
+    background-color: inherit;
+}
+
+nav.footer a {
+    font-size: medium;
+}
+
+.ml-75 {
+    margin-left: 75px;
+    @media (max-width: 740px) {
+        margin-left: 0;
+    }
+}
+
+.mr-75 {
+    margin-right: 75px;
+    @media (max-width: 740px) {
+        margin-right: 0;
+    }
+}
+
+.mobile-hide {
+    @media (max-width: 740px) {
+        display: none;
+    }
+}
+
+nav.footer .grid {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    justify-items: center;
+    list-style-type: none;
+    grid-gap: 30px;
+
+    @media (max-width: 740px) {
+        grid-gap: 10px;
+    }
+}
+
+.links a span {
+    @media (max-width: 740px) {
+        display: none;
+    }
+}
+
+.navbar-brand {
+    @media (max-width: 740px) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
