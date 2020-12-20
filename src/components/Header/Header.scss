@@ -5,13 +5,9 @@
 .navbar-nav a:after {
     display:block;
     content: '';
-    border-bottom: 3px solid cyan;
+    border-bottom: 3px solid #1cacd7;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
-}
-
-.navbar-nav a:hover {
-    transform: translateY(-10%);
 }
 
 .navbar-nav a:hover:after {
@@ -49,9 +45,15 @@
     text-align: center;
 }
 
-@media only screen and (max-width: 1000px) {
-    .navContainer {
+@media only screen and (max-width: 740px) {
+    .navHeader {
         margin-top: 5px;
+
+        .navbar-brand {
+            @media (max-width: 320px) {
+                margin-right: 0;
+            }
+        }
     }
 
     .nav-link {
@@ -77,14 +79,18 @@
     }
 }
 
-@media only screen and (min-width: 1000px) {
-    .navContainer {
-        margin: 30px 75px 50px;
+@media only screen and (min-width: 741px) {
+    .navHeader {
+        margin: 30px clamp(75px, 10vw, 170px) 50px;
     }
 
     .nav-link {
         width: auto;
         margin: auto 20px;
+
+        &:last-child {
+            margin: auto 0 auto 20px;
+        }
     }
 
     #responsive-navbar-nav {

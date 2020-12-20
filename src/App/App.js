@@ -8,6 +8,7 @@ import {
 
 import Header from "../components/Header/Header";
 import Home from '../components/Home/Home';
+import Projects from '../components/Projects/Projects';
 import About from '../components/About/About';
 import Resume from '../components/Resume/Resume';
 import Footer from '../components/Footer/Footer';
@@ -32,7 +33,7 @@ class App extends Component {
                         </Route>
                         <Route exact path="/projects/">
                             <Header />
-                            <div className="horizontal-margin-large"><About /></div>
+                            <div className="horizontal-margin-large"><Projects /></div>
                             <Footer />
                         </Route>
                         <Route exact path="/resume/">

@@ -6,7 +6,7 @@ import './Header.scss';
 
 export default function Header() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="inherit" variant="dark" className="navContainer">
+    <Navbar collapseOnSelect expand="lg" bg="inherit" variant="dark" className="navHeader">
       <Navbar.Brand href="#/">
         <div className="nameContainer">
           <div className="name">Mateusz Belka</div>

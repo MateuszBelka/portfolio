@@ -90,16 +90,24 @@ nav.grid {
             grid-auto-flow: row;
             justify-content: center;
             justify-items: center;
+
+            * {
+                overflow: visible;
+            }
         }
 
         span {
+            visibility: hidden;
+            font-weight: bold;
+
             @media (max-width: 740px) {
                 display: none;
             }
-            visibility: hidden;
         }
 
-        &:hover {
+        &:focus,
+        &:active,
+        &:hover,{
             a svg {
                 transform: scale(1.2);
                 transform-origin: 50% 50%;
