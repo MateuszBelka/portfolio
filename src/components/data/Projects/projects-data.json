@@ -1,9 +1,16 @@
 {
     "Projects": [
         {
-            "name": "Portfolio",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "bg_image_url": "/img/Projects/bg-id1.png",
+            "name": "Personal Portfolio",
+            "desc": [
+                "Modular component-based responsive web design in React.",
+                "Single-page application with scalability in mind."
+            ],
+            "stack": [
+                "React",
+                "Bootstrap"
+            ],
+            "backgroundImage": "/bg-personal-portfolio.png",
             "buttons": [
                 {
                     "name": "Live",
@@ -16,32 +23,71 @@
             ]
         },
         {
-            "name": "Portfolio",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "bg_image_url": "/img/Projects/bg-id2.png",
+            "name": "AWS Automation",
+            "desc": [
+                "Start/Stop AWS instance",
+                "Automatically update server hardware depending on user needs",
+                "Automate customization of offline server's configuration to minimize costs",
+                "Discord Bot solution that allows end-users to have effortless communication with AWS instances."
+            ],
+            "stack": [
+                "Python",
+                "AWS"
+            ],
+            "backgroundImage": "/bg-aws-automation.png",
             "buttons": [
                 {
-                    "name": "Live",
-                    "url": "https://mateuszbelka.github.io/"
-                },
-                {
                     "name": "Source Code",
-                    "url": "https://github.com/MateuszBelka/mateuszbelka.github.io"
+                    "url": "https://github.com/MateuszBelka/shr1mpBot"
                 }
             ]
         },
         {
-            "name": "Portfolio",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "bg_image_url": "/img/Projects/bg-id2.png",
+            "name": "University Map",
+            "desc": [
+                "Website to inform students of current locations available for studying.",
+                "Designed the front-end to be easily scalable to back-end implementation."
+            ],
+            "stack": [
+                "React"
+            ],
+            "backgroundImage": "/bg-vu-maps.png",
             "buttons": [
                 {
                     "name": "Live",
-                    "url": "https://mateuszbelka.github.io/"
+                    "url": "https://valeriankass.github.io/VU_Interactive_map/"
                 },
                 {
                     "name": "Source Code",
-                    "url": "https://github.com/MateuszBelka/mateuszbelka.github.io"
+                    "url": "https://github.com/MateuszBelka/VU_Interactive_map"
+                }
+            ]
+        },
+        {
+            "name": "Text Adventure Game",
+            "desc": [
+                "Wrote software in accordance with before-established UML class, object, sequence, and state diagrams.",
+                "Actively iterated the product’s features in accordance to internal feedback using Scrum.",
+                "Utilized knowledge of GitHub to conduct peer reviews and collaborate on multi-week project.",
+                "Constructed UI/UX, game engine, JSON serialization, player progression and combat.",
+                "Delivered a fully functional game, which exceeded expected feature goals."
+            ],
+            "stack": [
+                "React"
+            ],
+            "backgroundImage": "/bg-text-adventure-game.png",
+            "buttons": [
+                {
+                    "name": "Download",
+                    "url": "https://github.com/MateuszBelka/Text_Adventure_Game/raw/master/build/libs/software-design-vu-2020.jar"
+                },
+                {
+                    "name": "Video Demo",
+                    "url": "https://youtu.be/ydla-xiwkoM"
+                },
+                {
+                    "name": "Source Code",
+                    "url": "https://github.com/MateuszBelka/VU_Interactive_map"
                 }
             ]
         }
