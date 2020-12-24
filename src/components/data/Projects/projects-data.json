@@ -73,7 +73,8 @@
                 "Delivered a fully functional game, which exceeded expected feature goals."
             ],
             "stack": [
-                "React"
+                "Java",
+                "JavaFX"
             ],
             "backgroundImage": "/bg-text-adventure-game.png",
             "buttons": [

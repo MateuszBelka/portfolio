@@ -10,29 +10,49 @@ export default class Projects extends Component {
         this.state = {
             fullscreen: false,
             fullscreenProjectID: -1,
+            isMobileExpanded: [],
+        }
+        this.cards_ref = React.createRef()
+        this.cards_ref.current = []
+    }
+
+    showMore = (projectID) => {
+        if (window.innerWidth > 740) {
+            this.turnOnFullscreen(projectID)
+        } else {
+            this.changeDescMobile(projectID)
         }
     }
 
+    changeDescMobile = (projectID) => {
+        let isMobileExpanded_updated = [...this.state.isMobileExpanded]
+        isMobileExpanded_updated[projectID] = !this.state.isMobileExpanded[projectID]
+        this.setState({
+            isMobileExpanded: isMobileExpanded_updated
+        })
+    }
+
     turnOnFullscreen = (projectID) => {
-        if (window.innerWidth > 740) {
-            this.setState({
-                fullscreen: true,
-                fullscreenProjectID: projectID,
-            }, () => {
-                console.log("fullscreen: " + this.state.fullscreen)
-                console.log("fullscreenProjectID: " + this.state.fullscreenProjectID)
-            })
-        }
+        this.setState({
+            fullscreen: true,
+            fullscreenProjectID: projectID,
+        })
     }
 
     turnOffFullscreen = () => {
         this.setState({
             fullscreen: false,
             fullscreenProjectID: -1,
-        }, () => {
-            console.log("fullscreen: " + this.state.fullscreen)
-            console.log("fullscreenProjectID: " + this.state.fullscreenProjectID)
         })
+    }
+
+    addToCardRefs = (element) => {
+        if (element && !this.cards_ref.current.includes(element)) {
+            this.cards_ref.current.push(element)
+            this.setState(state => ({
+                isMobileExpanded: [...state.isMobileExpanded, false]
+            }))
+        }
     }
 
     render() {
@@ -40,7 +60,9 @@ export default class Projects extends Component {
             <div className="projects">
                 <div className="mini-cards">
                     {data.Projects.map((element,i) =>
-                        <ProjectMini project={element} key={i} id={i} onClick={this.turnOnFullscreen}/>
+                        <div ref={this.addToCardRefs} key={i} className="card-wrapper">
+                            <ProjectMini project={element} id={i} onClick={this.showMore} classToAdd={this.state.isMobileExpanded[i] ? "expandMobile" : ""}/>
+                        </div>
                     )}
                 </div>
                 {this.state.fullscreen &&

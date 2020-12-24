@@ -26,99 +26,118 @@ function printStack(project) {
     )
 }
 
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
 class PrintProjectTopBottom extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            card_height_px: -1,
-            action_buttons_height_px: -1,
-            title_height_px: -1,
-            desc_heights_px: [],
-            li_classes: []
+            card_height: -1,
+            default_card_height: -1,
+            bottom_height: -1
         }
         this.card_ref = React.createRef()
-        this.action_buttons_ref = React.createRef()
-        this.title_ref = React.createRef()
-        this.desc_refs = React.createRef()
-        this.desc_refs.current = []
+        this.top_ref = React.createRef()
+        this.bottom_ref = React.createRef()
+        this.ul_ref = React.createRef()
     }
 
     componentDidMount() {
-        this.setup_li_classes()
-
-        // Add onResize listener for div
-    }
-
-    setup_li_classes = () => {
-        this.desc_refs.current.forEach((li) => {
-            this.setState(state => ({
-                desc_heights_px: [...state.desc_heights_px, li.clientHeight]
-            }))
-        })
+        window.addEventListener('resize', this.updateCardHeightOnResize)
 
         this.setState({
-            card_height_px: this.card_ref.current.clientHeight,
-            action_buttons_height_px: this.action_buttons_ref.current.clientHeight,
-            title_height_px: this.title_ref.current.clientHeight,
-        }, () => {
-            let n = this.how_many_lis_to_show()
-            for (let i = 0; i < this.desc_refs.current.length; i++) {
-                this.setState(state => ({
-                    li_classes: [...state.li_classes, i < n ? "show" : "hide" ]
-                }))
-            }
-            this.setState({
-                number_of_li_shown: n
-            })
+            card_height: this.card_ref.current.clientHeight,
+            default_card_height: this.card_ref.current.clientHeight,
+            bottom_height: this.card_ref.current.clientHeight / 2
         })
     }
 
-    how_many_lis_to_show = () => {
-        let available_height_px = ((this.state.card_height_px / 2) * 0.8) - this.state.action_buttons_height_px - this.state.title_height_px
-        let can_add_more_li = true
-        let i = 0
-        while (can_add_more_li && i < this.state.desc_heights_px.length) {
-            let current_li_height = this.state.desc_heights_px[i]
-            available_height_px -= current_li_height
-            can_add_more_li = available_height_px > 0
-            i += 1
-        }
-        if (!can_add_more_li) {
-            i -= 1
-        }
-        return i
+    updateCardHeightOnResize = () => {
+        let new_card_height = this.card_ref.current === null ? this.state.default_card_height : this.card_ref.current.clientHeight
+        this.setState({
+            card_height: new_card_height,
+            bottom_height: new_card_height / 2
+        })
     }
 
-    addToDescRefs = (element) => {
-        if (element && !this.desc_refs.current.includes(element)) {
-            this.desc_refs.current.push(element)
+    updateCardHeightOnMobileClick = () => {
+        if (window.innerWidth <= 740 && Object.keys(this.props.project.desc).length !== 0) {
+            let default_card_height = this.state.default_card_height
+            let curr_card_height = this.card_ref.current.clientHeight
+            let ul_height = this.ul_ref.current.clientHeight
+
+            sleep(10).then(() => {
+                ul_height = this.ul_ref.current.clientHeight
+                let updated_card_height = this.card_ref.current.className.includes('expandMobile') ? curr_card_height + ul_height : default_card_height
+                let updated_bottom_height = (updated_card_height / 2) + (this.card_ref.current.className.includes('expandMobile') ? ul_height / 2 : 0)
+
+                this.setState({
+                    card_height: updated_card_height,
+                    bottom_height: updated_bottom_height
+                })
+            })
         }
     }
 
     render() {
+        let cardStyle = {}
+        let bottomStyle = {}
+        if (!this.props.fullscreen) {
+            cardStyle = {
+                height: this.state.card_height + 'px'
+            }
+            bottomStyle = {
+                height: this.state.bottom_height + 'px'
+            }
+        }
+
         return (
-            <div className="card-content" onClick={this.props.disableOnClick ? (e) => {e.stopPropagation()} : undefined} ref={this.card_ref}>
-                <div className="top">
-                    {/*1:1.4 resolution*/}
-                    <div style={{content: `url(${this.props.project.backgroundImage})`}}/>
-                </div>
-                <div className="bottom">
-                    <div className="bottom-wrapper">
-                        <div className="text-wrapper">
-                            {/*https://stackoverflow.com/questions/28485351/how-to-reduce-font-size-if-a-line-breaks*/}
-                            <h1 className="title" ref={this.title_ref}>{this.props.project.name}</h1>
-                            <ul>
-                                {this.props.project.desc.map((item, i) =>
-                                    <li key={i} className={this.state.li_classes[i]} ref={this.addToDescRefs}>{item}</li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className="action-buttons" ref={this.action_buttons_ref}>
-                            <div className="stack">
-                                {printStack(this.props.project)}
+            <div
+                className={`project-card ${this.props.fullscreen ? "" : this.props.classToAdd}`}
+                onClick={() => {
+                    if (!this.props.fullscreen) {
+                        this.props.onClick(this.props.id)
+                        this.updateCardHeightOnMobileClick()
+                    }
+                }}
+                ref={this.card_ref}
+                style={cardStyle}
+            >
+                <div
+                    className="card-content"
+                    onClick={this.props.disableOnClick ? (e) => {e.stopPropagation()} : undefined}
+                >
+                    <div className="top" ref={this.top_ref}>
+                        {/*1:1.4 resolution*/}
+                        <div style={{content: `url(${this.props.project.backgroundImage})`}}/>
+                    </div>
+                    <div
+                        className="bottom"
+                        ref={this.bottom_ref}
+                        style={bottomStyle}
+                    >
+                        <div className="bottom-wrapper">
+                            <div className="text-wrapper">
+                                {/*https://stackoverflow.com/questions/28485351/how-to-reduce-font-size-if-a-line-breaks*/}
+                                <h1 className="title">{this.props.project.name}</h1>
+                                <ul ref={this.ul_ref}>
+                                    {this.props.project.desc.map((item, i) =>
+                                        <li key={i}>{item}</li>
+                                    )}
+                                </ul>
+                                <div id="click-for-more">
+                                    Click for more...
+                                </div>
                             </div>
-                            <div className="buttons">
-                                {printButtons(this.props.project)}
+                            <div className="action-buttons">
+                                <div className="stack">
+                                    {printStack(this.props.project)}
+                                </div>
+                                <div className="buttons">
+                                    {printButtons(this.props.project)}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,17 +149,15 @@ class PrintProjectTopBottom extends Component {
 
 export function  ProjectFullscreen({project, turnOffFunc}) {
     return (
-        <div className="project-card fullscreen">
+        <div className="project-card">
             <button className="x-btn" onClick={turnOffFunc}>&#10006;</button>
-            <PrintProjectTopBottom project={project} disableOnClick={true}/>
+            <PrintProjectTopBottom project={project} disableOnClick={true} fullscreen={true}/>
         </div>
     )
 }
 
-export default function ProjectMini({project, id, onClick}) {
+export default function ProjectMini({project, id, onClick, classToAdd}) {
     return (
-        <div className="project-card" onClick={() => onClick(id)}>
-            <PrintProjectTopBottom project={project} disableOnClick={false}/>
-        </div>
+        <PrintProjectTopBottom project={project} disableOnClick={false} fullscreen={false} id={id} onClick={onClick} classToAdd={classToAdd}/>
     )
 }
