@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import {FontAwesomeIcon as FAIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
 import './Footer.scss';
 
@@ -23,9 +22,9 @@ export default function Footer() {
                   <a href="https://github.com/MateuszBelka" rel="noopener noreferrer" target="_blank" className="children-inherit-background">
                       <FAIcon icon={faGithub}/><span className="mobile-hide">Github</span>
                   </a>
-                  <a href="mailto:belka.mateusz.bm@gmail.com" rel="noopener noreferrer" target="_blank" className="children-inherit-background">
-                      <FAIcon icon={faEnvelope}/><span className="mobile-hide">Contact me</span>
-                  </a>
+                  {/*<a href="mailto:belka.mateusz.bm@gmail.com" rel="noopener noreferrer" target="_blank" className="children-inherit-background">*/}
+                  {/*    <FAIcon icon={faEnvelope}/><span className="mobile-hide">Get In Touch</span>*/}
+                  {/*</a>*/}
               </Navbar.Text>
           </Navbar>
       </div>

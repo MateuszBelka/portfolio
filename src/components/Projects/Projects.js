@@ -16,6 +16,10 @@ export default class Projects extends Component {
         this.cards_ref.current = []
     }
 
+    componentDidMount() {
+        document.title = "Mateusz Belka | Projects"
+    }
+
     showMore = (projectID) => {
         if (window.innerWidth > 740) {
             this.turnOnFullscreen(projectID)

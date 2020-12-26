@@ -32,7 +32,8 @@
             ],
             "stack": [
                 "Python",
-                "AWS"
+                "AWS",
+                "Heroku"
             ],
             "backgroundImage": "/bg-aws-automation.png",
             "buttons": [

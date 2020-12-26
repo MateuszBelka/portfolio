@@ -15,6 +15,12 @@
 }
 
 nav.footer {
+    @media (max-width: 740px) {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+
     z-index: 0;
     a {
         font-size: medium;
@@ -24,12 +30,14 @@ nav.footer {
         }
     }
 
-    .links a {
-        > * {
-            margin-right: 6px;
+    @media (min-width: 741px) {
+        .links a {
+            > * {
+                margin-right: 6px;
 
-            &:last-child {
-                margin-right: 0;
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
     }
@@ -62,10 +70,6 @@ nav.footer .grid {
     justify-items: center;
     list-style-type: none;
     grid-gap: 30px;
-
-    @media (max-width: 740px) {
-        grid-gap: 10px;
-    }
 }
 
 .navbar-brand {

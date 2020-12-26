@@ -54,6 +54,10 @@ class PrintProjectTopBottom extends Component {
         })
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateCardHeightOnResize)
+    }
+
     updateCardHeightOnResize = () => {
         let new_card_height = this.card_ref.current === null ? this.state.default_card_height : this.card_ref.current.clientHeight
         this.setState({
