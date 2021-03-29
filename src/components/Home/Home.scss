@@ -68,6 +68,11 @@ div.grid {
 }
 
 header > .title-wrapper {
+
+    @media (max-width: 740px) {
+        margin-top: 20px;
+    }
+
     @keyframes fadeIn {
         0% {
             transform: scale(0.85);
@@ -128,7 +133,7 @@ nav.grid {
 
         @media (max-width: 740px) {
             margin-top: 0;
-            grid-gap: calc(18vh - 100px);
+            grid-gap: calc(16vh - 100px);
             grid-auto-flow: row;
         }
     }
@@ -156,13 +161,10 @@ nav.grid {
             }
         }
 
-
-        @media (min-width: 741px) {
-            display: grid;
-            grid-auto-flow: row;
-            justify-content: center;
-            justify-items: center;
-        }
+        display: grid;
+        grid-auto-flow: row;
+        justify-content: center;
+        justify-items: center;
 
         span {
             visibility: hidden;
@@ -171,7 +173,8 @@ nav.grid {
             white-space: nowrap;
 
             @media (max-width: 740px) {
-                display: none;
+                margin-top: -5px;
+                visibility: visible;
             }
         }
 

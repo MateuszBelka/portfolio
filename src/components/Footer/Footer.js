@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="footerMargin"/>
           <Navbar fixed="bottom" className="d-flex justify-content-start footer" variant="dark" bg="dark">
               <Navbar.Brand href="#/about/" className="mr-auto ml-65to150 children-inherit-background">
-                  © 2020
+                  © 2020 - {new Date().getFullYear()}
                   <span className="bold-text"> Mateusz Belka</span>
                   <span className="mobile-hide">, All rights reserved.</span>
               </Navbar.Brand>
