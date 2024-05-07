@@ -15,7 +15,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.3",
     "node-sass": "^4.14.1",
-    "pdfjs-dist": "^2.5.207",
+    "pdfjs-dist": "^4.2.67",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.14.0",
